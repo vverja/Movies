@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MovieDetailActivity"
+    tools:ignore="SpeakableTextPresentCheck">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutForDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/posterImageDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@tools:sample/avatars"
+            android:adjustViewBounds="true"
+            android:contentDescription="@null"
+            />
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Кино и немцы"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/posterImageDetails"/>
+        <TextView
+            android:id="@+id/yearTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="2022"
+            android:textColor="@color/orange"
+            android:textStyle="bold"
+            android:textAlignment="textEnd"
+            android:textSize="16sp"
+            android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/titleTextView"/>
+        <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Описание фильма"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/yearTextView"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/trailer_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/trailer_item"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reviews_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintTop_toBottomOf="@id/trailer_list"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/review_item"/>
+
+        <ImageView
+            android:id="@+id/favoriteImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/posterImageDetails"
+            app:layout_constraintTop_toBottomOf="@id/posterImageDetails"
+            app:layout_constraintBottom_toBottomOf="@id/posterImageDetails"
+            android:layout_margin="16dp"
+            tools:srcCompat="@android:drawable/btn_star_big_off" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
